@@ -1,58 +1,140 @@
-/* App.css */
-.App {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 20px;
+
+.field-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; 
 }
 
-h1 {
-  font-size: 24px;
+.field-wrapper input[type="text"],
+.field-wrapper input[type="email"] {
+  flex-grow: 1; 
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field-wrapper input[type="text"]:focus,
+.field-wrapper input[type="email"]:focus {
+  border-color: #007bff;
+}
+
+.remove-field-button {
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 20px; 
+  height: 30px; 
+  margin-left: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.remove-field-button:hover {
+  background-color: #ff4f4f; 
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+
+form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 600px; 
+  margin: 0 auto;
+  width: 100%;
+}
+.background-color-picker {
   margin-bottom: 20px;
 }
 
-form {
-  background-color: #f5f5f5;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px; 
-  margin: 0 auto; 
-}
-
-label {
+.background-color-picker label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
-input[type="text"] {
+.background-color-picker input[type="color"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.background-color-picker input[type="color"]:focus {
+  border-color: #007bff;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: calc(100% - 30px); 
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #007bff;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-align: right;
+}
+
+select {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 5px 0;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 16px;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-button {
+select:focus {
+  border-color: #007bff;
+}
+
+button[type="button"],
+button[type="submit"] {
   background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
+  color: #ffffff;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
+  padding: 8px 16px; 
+  margin: 5px 0; 
   cursor: pointer;
-  font-size: 16px;
+  transition: background-color 0.2s;
 }
 
-button:hover {
+button[type="button"]:hover,
+button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-button.add-field {
-  background-color: #28a745;
-  margin-top: 10px;
-}
-
-button.add-field:hover {
-  background-color: #1e7e34;
-}
