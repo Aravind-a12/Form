@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import '../App.css';
-
+import ColorPicker from 'react-best-gradient-color-picker';
 
 function CustomizableForm() {
   const [fields, setFields] = useState([]);
-  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
+  const [normalBackgroundColor, setNormalBackgroundColor] = useState('#FFFFFF');
+  const [gradientBackgroundColor, setGradientBackgroundColor] = useState('transparent');
+  const [selectedColorType, setSelectedColorType] = useState('solid');
+  const [showColorPicker, setShowColorPicker] = useState(false);
 
   const addField = (fieldType) => {
     const newField = {};
@@ -42,31 +45,57 @@ function CustomizableForm() {
     setFields(updatedFields);
   };
 
-  const handleBackgroundColorChange = (e) => {
-    setBackgroundColor(e.target.value);
+  const handleToggleColorPicker = () => {
+    setShowColorPicker(!showColorPicker);
+  };
+
+  const handleGradientBackgroundColorChange = (color) => {
+    setGradientBackgroundColor(color);
+    setSelectedColorType('gradient');
+  };
+
+  const handleNormalBackgroundColorChange = (color) => {
+    setNormalBackgroundColor(color);
+    setSelectedColorType('solid');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(fields); 
+    console.log(fields);
+  };
+
+  const formStyle = {
+    background:
+      selectedColorType === 'gradient'
+        ? `linear-gradient(to bottom, transparent, ${gradientBackgroundColor}), ${normalBackgroundColor}`
+        : normalBackgroundColor,
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit} style={{ backgroundColor }}>
+      <form onSubmit={handleSubmit} style={formStyle}>
         <h2>FORM 1</h2>
-        <div className="background-color-picker">
-          <label htmlFor="backgroundColor">BG Color:</label>
-          <input
-            type="color"
-            id="backgroundColor"
-            name="backgroundColor"
-            value={backgroundColor}
-            onChange={handleBackgroundColorChange}
-          />
+        <div className="color-picker-container">
+          <div
+            className="background-color-picker"
+            onClick={handleToggleColorPicker}
+          >
+            <label htmlFor="gradientColor">BG Color</label>
+          </div>
+
+          {showColorPicker && (
+            <ColorPicker
+              value={selectedColorType === 'gradient' ? gradientBackgroundColor : normalBackgroundColor}
+              onChange={
+                selectedColorType === 'gradient'
+                  ? handleGradientBackgroundColorChange
+                  : handleNormalBackgroundColorChange
+              }
+            />
+          )}
         </div>
         {fields.map((field, index) => (
-          <div key={index} className="field-container">
+            <div key={index} className="field-container">
             <div className="input-container">
               {Object.keys(field).map((fieldName) => (
                 <div key={fieldName} className="field-wrapper">
@@ -79,7 +108,7 @@ function CustomizableForm() {
                   <button
                     type="button"
                     className="remove-field-button"
-                    style={{ marginLeft: "10px", backgroundColor: "#FF0000" }}
+                    style={{ marginLeft: '10px', backgroundColor: '#FF0000' }}
                     onClick={() => removeField(index)}
                   >
                     &#10006;

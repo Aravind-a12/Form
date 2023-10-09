@@ -1,13 +1,12 @@
-
 .field-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .field-wrapper input[type="text"],
 .field-wrapper input[type="email"] {
-  flex-grow: 1; 
+  flex-grow: 1;
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ccc;
@@ -26,9 +25,9 @@
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 20px; 
+  width: 20px;
   height: 30px; 
-  margin-left: 20px;
+  margin-left: 20px; 
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -37,7 +36,12 @@
 }
 
 .remove-field-button:hover {
-  background-color: #ff4f4f; 
+  background-color: #ff4f4f;
+}
+
+
+.field-container {
+  margin-bottom: 20px;
 }
 
 .App {
@@ -45,47 +49,52 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh; 
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
 }
-
 
 form {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  max-width: 600px; 
+  max-width: 600px;
   margin: 0 auto;
   width: 100%;
 }
+
 .background-color-picker {
   margin-bottom: 20px;
 }
 
 .background-color-picker label {
+  
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
 .background-color-picker input[type="color"] {
-  width: 100%;
+  
+  width: 85%;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
   transition: border-color 0.2s;
+  
 }
 
 .background-color-picker input[type="color"]:focus {
   border-color: #007bff;
 }
 
+
 input[type="text"],
-input[type="email"] {
-  width: calc(100% - 30px); 
+input[type="email"],
+select {
+  width: calc(100%-30px);
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ccc;
@@ -95,15 +104,33 @@ input[type="email"] {
 }
 
 input[type="text"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus,
+select:focus {
   border-color: #007bff;
 }
 
+button[type="button"],
+button[type="submit"] {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="button"]:hover,
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
 label {
-  display: inline-block;
+  display:inline-block;
   width: 100px;
   font-weight: bold;
-  margin-right: 10px;
+  margin-right:10px;
   text-align: right;
 }
 
@@ -120,21 +147,3 @@ select {
 select:focus {
   border-color: #007bff;
 }
-
-button[type="button"],
-button[type="submit"] {
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px; 
-  margin: 5px 0; 
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-button[type="button"]:hover,
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-

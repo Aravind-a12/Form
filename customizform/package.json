@@ -7,8 +7,14 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
+    "react-best-gradient-color-picker": "^2.2.23",
     "react-dom": "^18.2.0",
+    "react-gradient": "^1.0.2",
+    "react-gradient-picker": "^0.1.10",
     "react-linear-gradient-picker": "^3.0.1",
+    "react-native": "^0.72.5",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-web": "^0.19.9",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -35,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "eslint-plugin-react": "^7.33.2"
   }
 }
